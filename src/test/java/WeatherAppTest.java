@@ -26,6 +26,6 @@ public class WeatherAppTest {
 
     @Test
     public void getKoordinaadid(){
-        assertTrue(true);
+        assertTrue(false);
     }
 }
