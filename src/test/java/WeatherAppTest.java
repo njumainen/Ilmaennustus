@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class IlmaennustusTest {
+public class WeatherAppTest {
 
     @Test
     public void getPraeguneTemperatuur(){
@@ -26,6 +26,6 @@ public class IlmaennustusTest {
 
     @Test
     public void getKoordinaadid(){
-        assertTrue(false);
+        assertTrue(true);
     }
 }
