@@ -17,13 +17,12 @@ public class WeatherTest {
 
     @Test
     public void getCurrentWeatherTest(){
-        //Weather response = WeatherRepository.getCurrentTemperature(weatherRequest);
-        //assertNotNull(response);
+        assertTrue(false);
     }
 
     @Test
     public void getThreeDaysWeatherTest (){
-
+        assertTrue(false);
     }
 
     @Test
