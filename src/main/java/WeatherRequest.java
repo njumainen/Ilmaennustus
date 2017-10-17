@@ -6,10 +6,10 @@ public class WeatherRequest {
     private String units;
 
 
-    private WeatherRequest(String city, String country, String units) {
-        this.city = city;
-        this.country = country;
-        this.units = units;
+    WeatherRequest() {
+        this.city = "Tallinn";
+        this.country = "EE";
+        this.units = "metric";
     }
 
     public String getCity() {

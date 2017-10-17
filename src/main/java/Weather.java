@@ -8,9 +8,27 @@ public class Weather {
     private Date date;
     private String city;
     private String code;
+    private Double coordLat;
+    private Double coordLon;
 
     public double getTemperature() {
         return temperature;
+    }
+
+    public Double getCoordLat() {
+        return coordLat;
+    }
+
+    public void setCoordLat(Double coordLat) {
+        this.coordLat = coordLat;
+    }
+
+    public Double getCoordLon() {
+        return coordLon;
+    }
+
+    public void setCoordLon(Double coordLon) {
+        this.coordLon = coordLon;
     }
 
     public void setTemperature(double temperature) {

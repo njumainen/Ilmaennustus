@@ -11,13 +11,14 @@ public class WeatherTest {
     @Before
     public void setUpTest() throws Exception {
         weatherRepository = new WeatherRepository();
-        weatherRequest = new WeatherRequest("Tallinn", "EE","metric");
+        weatherRequest = new WeatherRequest();
     }
 
 
     @Test
     public void getCurrentWeatherTest(){
-        assertTrue(false);
+        Weather response = WeatherRepository.getCurrentTemperature(weatherRequest);
+        assertNotNull(response);
     }
 
     @Test
