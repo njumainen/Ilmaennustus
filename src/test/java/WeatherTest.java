@@ -11,7 +11,7 @@ public class WeatherTest {
     @Before
     public void setUpTest() throws Exception {
         weatherRepository = new WeatherRepository();
-        weatherRequest = new WeatherRequest();
+        weatherRequest = new WeatherRequest("Tallinn", "EE","metric");
     }
 
 
