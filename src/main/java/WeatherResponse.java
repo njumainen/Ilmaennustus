@@ -1,9 +1,9 @@
 import org.json.*;
 
 public class WeatherResponse {
-    public String city;
-    public String countryCode;
-    public double currentTemp;
+    private String city;
+    private String countryCode;
+    private double currentTemp;
 
     public WeatherResponse(JSONObject json){
         JSONArray list = json.getJSONArray("list");
