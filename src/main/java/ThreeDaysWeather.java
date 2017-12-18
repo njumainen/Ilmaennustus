@@ -26,8 +26,8 @@ public class ThreeDaysWeather {
             JSONArray list = response.getJSONArray("list");
 
             for (int i = 0; i < list.length(); i++){
-                JSONObject threeDaysWeatherObj = (JSONObject)list.get(i);
-                Date dateOfForecast = new java.util.Date(threeDaysWeatherObj.getLong("dt")*1000);
+                JSONObject threeDaysWeatherObject = (JSONObject)list.get(i);
+                Date dateOfForecast = new java.util.Date(threeDaysWeatherObject.getLong("dt")*1000);
                 calendarReport.setTime(dateOfForecast);
 
 
@@ -35,9 +35,9 @@ public class ThreeDaysWeather {
                 threeDaysWeather.setDate(calendarReport.getTime());
                 threeDaysWeather.setCity(response.getJSONObject("city").getString("name"));
                 threeDaysWeather.setCode(response.getJSONObject("city").getString("country"));
-                threeDaysWeather.setTemperature(threeDaysWeatherObj.getJSONObject("main").getDouble("temp"));
-                threeDaysWeather.setLowestTemp(threeDaysWeatherObj.getJSONObject("main").getDouble("temp_min"));
-                threeDaysWeather.setHighestTemp(threeDaysWeatherObj.getJSONObject("main").getDouble("temp_max"));
+                threeDaysWeather.setTemperature(threeDaysWeatherObject.getJSONObject("main").getDouble("temp"));
+                threeDaysWeather.setLowestTemp(threeDaysWeatherObject.getJSONObject("main").getDouble("temp_min"));
+                threeDaysWeather.setHighestTemp(threeDaysWeatherObject.getJSONObject("main").getDouble("temp_max"));
                 threeDaysWeather.setCoordLat(response.getJSONObject("city").getJSONObject("coord").getDouble("lat"));
                 threeDaysWeather.setCoordLon(response.getJSONObject("city").getJSONObject("coord").getDouble("lon"));
 
