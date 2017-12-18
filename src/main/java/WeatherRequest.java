@@ -6,13 +6,13 @@ public class WeatherRequest {
     private String units;
 
 
-    WeatherRequest() {
-        this.city = "Tallinn";
-        this.country = "EE";
-        this.units = "metric";
+    WeatherRequest(String city, String code) {
+        this.city = city;
+        this.country = country;
+        this.units = units;
     }
 
-    public String getCity() {
+    String getCity() {
         return city;
     }
 
@@ -20,7 +20,7 @@ public class WeatherRequest {
         this.city = city;
     }
 
-    public String getCountry() {
+    String getCountry() {
         return country;
     }
 
@@ -28,7 +28,7 @@ public class WeatherRequest {
         this.country = country;
     }
 
-    public String getUnits() {
+    String getUnits() {
         return units;
     }
 

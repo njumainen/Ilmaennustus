@@ -2,7 +2,7 @@ import org.json.*;
 
 public class WeatherResponse {
     private String city;
-    private String countryCode;
+    private String code;
     private double currentTemp;
 
     public WeatherResponse(JSONObject json){
@@ -10,7 +10,7 @@ public class WeatherResponse {
         JSONObject data = list.getJSONObject(0);
 
         this.city = data.getString("name");
-        this.countryCode = data.getJSONObject("sys").getString("country");
+        this.code = data.getJSONObject("sys").getString("country");
         this.currentTemp = data.getJSONObject("main").getDouble("temp");
     }
 
@@ -19,7 +19,7 @@ public class WeatherResponse {
     }
 
     public String getCode() {
-        return countryCode;
+        return code;
     }
 
     public Double getCurrentTemp() {
@@ -32,7 +32,7 @@ public class WeatherResponse {
     public String toString() {
         return "CurrentWeatherReport{" +
                 "city='" + city + '\'' +
-                ", code='" + countryCode + '\'' +
+                ", code='" + code + '\'' +
                 ", currentTemperature=" + currentTemp +
                 '}';
     }

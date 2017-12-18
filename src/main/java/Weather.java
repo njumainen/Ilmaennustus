@@ -11,67 +11,73 @@ public class Weather {
     private Double coordLat;
     private Double coordLon;
 
-    public double getTemperature() {
+    double getTemperature() {
         return temperature;
     }
 
-    public Double getCoordLat() {
+    Double getCoordLat() {
         return coordLat;
     }
 
-    public void setCoordLat(Double coordLat) {
+    void setCoordLat(Double coordLat) {
         this.coordLat = coordLat;
     }
 
-    public Double getCoordLon() {
+    Double getCoordLon() {
         return coordLon;
     }
 
-    public void setCoordLon(Double coordLon) {
+    void setCoordLon(Double coordLon) {
         this.coordLon = coordLon;
     }
 
-    public void setTemperature(double temperature) {
+    void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 
-    public double getHighestTemp() {
+    double getHighestTemp() {
         return highestTemp;
     }
 
-    public void setHighestTemp(double highestTemp) {
+    void setHighestTemp(double highestTemp) {
         this.highestTemp = highestTemp;
     }
 
-    public double getLowestTemp() {
+    double getLowestTemp() {
         return lowestTemp;
     }
 
-    public void setLowestTemp(double lowestTemp) {
+    void setLowestTemp(double lowestTemp) {
         this.lowestTemp = lowestTemp;
     }
 
-    public Date getDate() {
+    Date getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    void setDate(Date date) {
         this.date = date;
     }
 
-    public String getCity() {
+    String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    void setCity(String city) {
         this.city = city;
     }
 
-    public String getCode() {
+    String getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    void setCode(String code) {
         this.code = code;
+    }
+
+    @Override
+    public String toString() {
+        return "Weather report:" + "City: " + city + ',' + code +"; Date: " + date + "; Current Temperature: " + temperature + "; Latitude: " + coordLat + "; Longitude: " + coordLon + ", min:" + lowestTemp +
+                ", max:" + highestTemp;
     }
 }
