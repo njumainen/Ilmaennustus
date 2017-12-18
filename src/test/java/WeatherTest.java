@@ -37,9 +37,8 @@ public class WeatherTest {
 
     }
 
-
     @Test
-    public void ifMaxTemperatureIsHigherThanMinTemperatureTest() {
+    public void ifMaxTemperatureIsMaxThanMinTemperatureTest() {
         List<Weather> response = ThreeDaysWeather.threeDaysWeather(weatherRequest);
 
         for (Weather day : response) {
