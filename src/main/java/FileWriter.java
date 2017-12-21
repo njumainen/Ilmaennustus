@@ -15,6 +15,7 @@ public class FileWriter {
         bfw.write(cityData);
         bfw.close();
 
+
     }
     public static void writeCityDataToFile(List<Weather> weather) throws IOException{
         Map<String, List<Weather>> groupedList = weather.stream().collect(Collectors.groupingBy(Weather::getCityName));

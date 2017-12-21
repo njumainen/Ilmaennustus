@@ -44,6 +44,7 @@ public class FileReader {
         while ((line = fileIn.readLine()) != null) {
             countryInfo.add(line);
         }
+
         fileIn.close();
         return countryInfo;
     }
