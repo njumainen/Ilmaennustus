@@ -3,10 +3,10 @@ import java.util.Date;
 
 public class Weather {
     private double temperature;
-    private double highestTemp;
-    private double lowestTemp;
+    private double maxTemp;
+    private double minTemp;
     private Date date;
-    private String city;
+    private String cityName;
     private String code;
     private Double coordLat;
     private Double coordLon;
@@ -35,20 +35,20 @@ public class Weather {
         this.temperature = temperature;
     }
 
-    double getHighestTemp() {
-        return highestTemp;
+    double getMaxTemp() {
+        return maxTemp;
     }
 
-    void setHighestTemp(double highestTemp) {
-        this.highestTemp = highestTemp;
+    void setMaxTemp(double maxTemp) {
+        this.maxTemp = maxTemp;
     }
 
-    double getLowestTemp() {
-        return lowestTemp;
+    double getMinTemp() {
+        return minTemp;
     }
 
-    void setLowestTemp(double lowestTemp) {
-        this.lowestTemp = lowestTemp;
+    void setMinTemp(double minTemp) {
+        this.minTemp = minTemp;
     }
 
     Date getDate() {
@@ -59,12 +59,12 @@ public class Weather {
         this.date = date;
     }
 
-    String getCity() {
-        return city;
+    String getCityName() {
+        return cityName;
     }
 
-    void setCity(String city) {
-        this.city = city;
+    void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     String getCode() {
@@ -77,7 +77,7 @@ public class Weather {
 
     @Override
     public String toString() {
-        return "Weather report:" + "City: " + city + ',' + code +"; Date: " + date + "; Current Temperature: " + temperature + "; Latitude: " + coordLat + "; Longitude: " + coordLon + ", min:" + lowestTemp +
-                ", max:" + highestTemp;
+        return "Weather report:" + "City: " + cityName + ',' + code +"; Date: " + date + "; Current Temperature: " + temperature + "; Latitude: " + coordLat + "; Longitude: " + coordLon + ", min:" + minTemp +
+                ", max:" + maxTemp;
     }
 }

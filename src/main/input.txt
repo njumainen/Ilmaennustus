@@ -1,1 +1,4 @@
 Tallinn, EE
+Tartu, EE
+Riga, LV
+London, GB

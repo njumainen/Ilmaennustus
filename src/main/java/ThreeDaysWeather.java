@@ -7,6 +7,7 @@ import java.util.*;
 public class ThreeDaysWeather {
     public static List<Weather> threeDaysWeather(WeatherRequest request)
     {
+
         List<Weather> ThreeDaysWeather = new ArrayList<>();
         List<List<Weather>> sortByDate = new ArrayList<>();
         List<Weather> reportThreeDaysWeather = new ArrayList<>();
@@ -16,7 +17,7 @@ public class ThreeDaysWeather {
         calendarReport.setTime(date);
         int currentDay = calendarReport.get(Calendar.DAY_OF_MONTH);
 
-        JSONObject response = WeatherRepository.connectionToService(request, "forecast");
+        JSONObject response = ConnectionMaker.connectionToService(request, "forecast");
 
         if (response == null){
             return null;
@@ -33,11 +34,11 @@ public class ThreeDaysWeather {
 
                 Weather threeDaysWeather = new Weather();
                 threeDaysWeather.setDate(calendarReport.getTime());
-                threeDaysWeather.setCity(response.getJSONObject("city").getString("name"));
+                threeDaysWeather.setCityName(response.getJSONObject("city").getString("name"));
                 threeDaysWeather.setCode(response.getJSONObject("city").getString("country"));
                 threeDaysWeather.setTemperature(threeDaysWeatherObject.getJSONObject("main").getDouble("temp"));
-                threeDaysWeather.setLowestTemp(threeDaysWeatherObject.getJSONObject("main").getDouble("temp_min"));
-                threeDaysWeather.setHighestTemp(threeDaysWeatherObject.getJSONObject("main").getDouble("temp_max"));
+                threeDaysWeather.setMinTemp(threeDaysWeatherObject.getJSONObject("main").getDouble("temp_min"));
+                threeDaysWeather.setMaxTemp(threeDaysWeatherObject.getJSONObject("main").getDouble("temp_max"));
                 threeDaysWeather.setCoordLat(response.getJSONObject("city").getJSONObject("coord").getDouble("lat"));
                 threeDaysWeather.setCoordLon(response.getJSONObject("city").getJSONObject("coord").getDouble("lon"));
 
@@ -59,12 +60,12 @@ public class ThreeDaysWeather {
 
                 Weather weather = new Weather();
                 weather.setCode(maxTempOfDay.getCode());
-                weather.setCity(maxTempOfDay.getCity());
+                weather.setCityName(maxTempOfDay.getCityName());
                 weather.setCoordLat(maxTempOfDay.getCoordLat());
                 weather.setCoordLon(maxTempOfDay.getCoordLon());
                 weather.setTemperature(maxTempOfDay.getTemperature());
-                weather.setHighestTemp(maxTempOfDay.getTemperature());
-                weather.setLowestTemp(minTempOfDay.getTemperature());
+                weather.setMaxTemp(maxTempOfDay.getTemperature());
+                weather.setMinTemp(minTempOfDay.getTemperature());
                 weather.setDate(maxTempOfDay.getDate());
 
                 reportThreeDaysWeather.add(weather);
@@ -74,7 +75,6 @@ public class ThreeDaysWeather {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return ThreeDaysWeather;
     }
 }

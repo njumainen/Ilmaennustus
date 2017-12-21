@@ -1,14 +1,29 @@
 import java.io.*;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
-    private static String inputFile = "C:/Users/Artjom Njumainen/IdeaProjects/Ilmaennustus/src/main/input.txt";
-    private static String outputFile = "C:/Users/Artjom Njumainen/IdeaProjects/Ilmaennustus/src/main/output.txt";
+    //private static String inputFile = "C:/Users/Artjom Njumainen/IdeaProjects/Ilmaennustus/src/main/input.txt";
+    //private static String outputFile = "C:/Users/Artjom Njumainen/IdeaProjects/Ilmaennustus/src/main/output.txt";
 
 
     public static void main(String[] args) {
+
+        try {
+
+            WeatherForPlaces weatherForPlaces = new WeatherForPlaces();
+            FileReader fileReader = new FileReader();
+            List<String> places = fileReader.getDataFromConsole();
+
+            List<Weather> weather = weatherForPlaces.getWeatherForPlaces(places);
+            FileWriter fileWriter = new FileWriter();
+            fileWriter.writeCityDataToFile(weather);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+   /* public static void main(String[] args) {
         Scanner scr = null;
         BufferedWriter bfw = null;
         FileWriter fwr = null;
@@ -72,5 +87,5 @@ public class Main {
                 }
             }
         }
-    }
+    }*/
 }

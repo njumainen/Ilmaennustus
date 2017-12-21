@@ -4,12 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
-class WeatherRepository {
+
+class ConnectionMaker {
     private static String weatherUrl = "http://api.openweathermap.org/data/2.5/";
     private static String key = "05a83a8890d0af69b62aab7de7229515";
 
@@ -36,7 +34,6 @@ class WeatherRepository {
             JSONObject jsonObj = new JSONObject(responseBuilder.toString());
 
             c.disconnect();
-
             return jsonObj;
 
         } catch (Exception e) {
