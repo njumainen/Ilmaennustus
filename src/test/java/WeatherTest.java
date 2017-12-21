@@ -68,40 +68,25 @@ public class WeatherTest {
             assertTrue(longitude.getCoordLat() < 180);
         }
     }
+
+
+
+
     @Test
-    public void testBothRequestsFilesCreatedMock() throws IOException {
-        WeatherForPlaces weatherForPlaces = mock(WeatherForPlaces.class);
-        FileWriter fileWriter = new FileWriter();
-        List<String> places = new ArrayList<>();
-        places.add("Tallinn,EE");
-        List<Weather> response = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            Weather rsp = new Weather();
-            rsp.setCityName("Tallinn");
-            rsp.setCode("EE");
-            rsp.setCoordLon(0.000000);
-            rsp.setCoordLat(0.000000);
+    public void testWriteWeatherToFileByCity() throws IOException {
+        FileWriter fileWriter = mock(FileWriter.class);
+        fileWriter.writeCityDataToFile(anyList());
 
-            rsp.setDate(new Date());
-            response.add(rsp);
-        }
-
-        File file = new File("C:/Users/Artjom Njumainen/IdeaProjects/Ilmaennustus/src/main/Tallinn.txt");
-        if (file.exists() && !file.isDirectory()){
-            file.delete();
-        }
-
-        when(weatherForPlaces.getWeatherForPlaces(places)).thenReturn(response);
-        response = weatherForPlaces.getWeatherForPlaces(places);
-        verify(weatherForPlaces, times(1)).getWeatherForPlaces(places);
-        fileWriter.writeCityDataToFile(response);
-
-        file = new File("C:/Users/Artjom Njumainen/IdeaProjects/Ilmaennustus/src/main/Tallinn.txt");
-
-        assertTrue(file.exists());
+        verify(fileWriter).writeCityDataToFile(anyList());
     }
 
+    @Test
+    public void TestWritingToFile() throws IOException {
+        FileWriter fileWriter = mock(FileWriter.class);
+        fileWriter.writeToFile(anyString(), anyString());
 
+        verify(fileWriter, times(1)).writeToFile(anyString(), anyString());
+    }
     /*@Test
     public void testGetCurrentTemp() throws IOException {
 
